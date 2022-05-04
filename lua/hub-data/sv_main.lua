@@ -9,7 +9,7 @@ end
 hub_data.conn:connect()
 
 do
-	local query = hub_data.conn:query(("REPLACE INTO `ServerInfo` VALUES ('%s', '%s', %u, %u)"):format(game.GetIPAddress(), GetConVar('hostname'):GetString(), game.GetMap(), player.GetCount(), game.MaxPlayers()))
+	local query = hub_data.conn:query(("REPLACE INTO `ServerInfo` VALUES ('%s', '%s', '%s', %s, %s)"):format(game.GetIPAddress(), GetConVar('hostname'):GetString(), game.GetMap(), player.GetCount(), game.MaxPlayers()))
 
 	query.onError = function(self, err, sql)
 		print("query error: ", err, "\nsql:", sql)
